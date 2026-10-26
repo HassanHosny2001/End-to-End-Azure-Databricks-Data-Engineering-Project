@@ -98,13 +98,15 @@ Automated end-to-end execution managed by a Serverless **Databricks Workflow**:
 ### Step 1: Provision Azure Infrastructure
 1. Create Resource Group `Databricks_RG_ETE`.
 2. Provision Storage Account `databrickslakestorageete` (ADLS Gen2 with Hierarchical Namespace enabled).
-3. Create 6 containers: `source`, `bronze`, `silver`, `gold`, `metastore`, `$logs`.
+3. Create 5 containers: `source`, `bronze`, `silver`, `gold`, `metastore`.
 4. Create Access Connector `databricks_ete_connector` and assign `Storage Blob Data Contributor` role on the storage account.
 5. Deploy Azure Databricks Workspace `databricks_project`.
 
 ### Step 2: Configure Unity Catalog Governance
-1. Create an External Location pointing to `abfss://metastore@databrickslakestorageete.dfs.core.windows.net/` using `databricks_ete_connector`.
-2. Create Catalog `databricks_catalog` and schemas: `bronze`, `silver`, `gold`.
+1. Create an External Location pointing to `abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/` using `<access-connector-name>`.
+
+   Example: `abfss://metastore@mystorageaccount.dfs.core.windows.net/`
+2. Create Catalog Example: `databricks_catalog` and schemas: `bronze`, `silver`, `gold`.
 
 ### Step 3: Import & Execute ETL Notebooks
 1. Import notebooks into `/Workspace/Users/<your-email>/Databricks ETL Project/`.
