@@ -3,7 +3,6 @@
 ![Azure Databricks](https://img.shields.io/badge/Azure-Databricks-FF3621?logo=databricks&logoColor=white)
 ![Delta Lake](https://img.shields.io/badge/Delta-Lake-00ADD8)
 ![PySpark](https://img.shields.io/badge/PySpark-3.x-E25A1C?logo=apachespark&logoColor=white)
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 A Lakehouse pipeline on **Azure Databricks** that ingests raw files from **ADLS Gen2**, refines them through a **Medallion (Bronze → Silver → Gold)** architecture, and publishes a **star schema** for analytics. Governance is handled by **Unity Catalog**, history tracking by **SCD Type 1 and Type 2** dimensions, and execution by a **Databricks Workflows** job.
 
