@@ -20,7 +20,6 @@ A Lakehouse pipeline on **Azure Databricks** that ingests raw files from **ADLS 
 - [Getting started](#getting-started)
 - [Screenshots](#screenshots)
 - [Design notes and roadmap](#design-notes-and-roadmap)
-- [License](#license)
 
 ## Highlights
 
@@ -81,7 +80,6 @@ flowchart LR
 │   └── images/          # Architecture diagram and screenshots
 ├── exports/
 │   └── Databricks ETL Project.dbc   # Importable Databricks archive of the notebooks
-├── LICENSE
 └── README.md
 ```
 
@@ -147,13 +145,3 @@ This project is a learning and portfolio build, and a few simplifications are wo
 - `Gold_Orders` currently uses `product_id` as `DimProductKey`. Because `DimProducts` is SCD Type 2, a lookup on the current version's surrogate key would be more correct.
 - `DimCustomers` surrogate keys use `monotonically_increasing_id()` offset by the current maximum. A Delta identity column is a more robust alternative.
 - Silver tables are fully overwritten on each run, which suits the sample data volume.
-
-Planned: parameterised configuration, unit tests for transformation logic, Databricks Asset Bundles for deployment, and a CI/CD workflow that deploys the bundle.
-
-## License
-
-Released under the [MIT License](LICENSE).
-
-## Author
-
-**Hassan Hosny**: [GitHub](https://github.com/HassanHosny2001)
